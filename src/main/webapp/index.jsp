@@ -3,21 +3,13 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:template>
 	<jsp:attribute name="header">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
+      <%@include file="components/navbar.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="sidenav">
-    <%@include file="components/list.jsp" %>
+    <%@include file="components/list.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="footer">
-      <p >Footer</p>
+      <p>Footer</p>
     </jsp:attribute>
 	<jsp:body>
 		<h1>Home page</h1>
