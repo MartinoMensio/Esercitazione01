@@ -14,7 +14,7 @@
     </ul>
     </jsp:attribute>
 	<jsp:attribute name="sidenav">
-    <h1>Sidenav</h1>
+    <%@include file="components/list.jsp" %>
     </jsp:attribute>
 	<jsp:attribute name="footer">
       <p >Footer</p>
