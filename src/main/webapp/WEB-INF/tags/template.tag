@@ -16,6 +16,19 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="stylesheets/bootstrap.min2.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+<link href="stylesheets/prova.css" rel="stylesheet">
+
+<!-- Custom Style -->
+<link href="stylesheets/style.min2.css" rel="stylesheet">
+
+<!-- Prism -->
+<link href="stylesheets/prims.css" rel="stylesheet">
+
 </head>
 <body>
 	<div id="pageheader" class="navbar navbar-inverse navbar-fixed-top">
