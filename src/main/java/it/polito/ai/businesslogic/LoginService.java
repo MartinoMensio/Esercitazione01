@@ -18,4 +18,8 @@ public interface LoginService {
 	 * The user does not receive any feedback for security and privacy reasons.
 	 * **/
 	void resetPassword(String username);
+	/**
+	 * If the user is logged in or not
+	 */
+	boolean isLoggedIn();
 }
