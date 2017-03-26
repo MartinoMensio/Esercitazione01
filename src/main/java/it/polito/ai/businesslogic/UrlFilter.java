@@ -26,7 +26,7 @@ public class UrlFilter implements Filter {
 			HttpServletRequest httpRequest = (HttpServletRequest) request;
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
 			HttpSession session = httpRequest.getSession();
-			LoginService loginService = (LoginService) session.getAttribute("login");
+			LoginService loginService = (LoginService) session.getAttribute("loginService");
 			if (loginService != null && loginService.isLoggedIn()) {
 				// pass the request along the filter chain
 				chain.doFilter(request, response);

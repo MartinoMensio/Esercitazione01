@@ -29,10 +29,10 @@
 		</div>
 	</div>
 	<div id="sidenav" class="navbar-fixed-top vertical-center"
-		style="width: 250px">
+		style="width: 250px; margin-top:50px;">
 		<jsp:invoke fragment="sidenav" />
 	</div>
-	<div class="container" style="margin-top: 50px; margin-left: 250px">
+	<div class="container" style="padding-top: 50px; padding-left: 250px">
 		<div id="body" class="row">
 			<jsp:doBody />
 		</div>

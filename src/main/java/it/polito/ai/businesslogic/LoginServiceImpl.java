@@ -1,24 +1,41 @@
 package it.polito.ai.businesslogic;
 
+import java.util.*;
+
 public class LoginServiceImpl implements LoginService {
 	
 	private boolean loggedIn;
 	private String username;
-	private String password;
 	
-	public LoginServiceImpl(String username, String password) {
-		this.username = username;
-		this.password = password;
+	private boolean initialized = false;
+	private static Map<String, String> users = new HashMap<String,String>();
+	
+	public LoginServiceImpl() {
+		if (!initialized) {
+			// TODO this part of code should be done by asking DB
+			users.put("martino", "martino");
+			users.put("riccardo", "riccardo");
+			users.put("alessio", "alessio");
+			users.put("sabrina", "sabrina");
+			initialized = true;
+		}
 		this.loggedIn = false;
+		this.username = null;
 	}
 
 	public boolean login(String username, String password) {
-		loggedIn = (username == this.username && password == this.password);
+		String correctPwd = users.get(username);
+		loggedIn = (correctPwd != null && correctPwd.equals(password));
+		if (loggedIn) {
+			this.username = username;
+		}
+		System.out.println("loggedIn:" + loggedIn);
 		return loggedIn;
 	}
 
 	public void logout() {
 		loggedIn = false;
+		username = null;
 	}
 
 	public String getUsername() {

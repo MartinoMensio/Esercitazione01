@@ -39,9 +39,9 @@ public class AppContextListener implements ServletContextListener, HttpSessionLi
 
 	public void sessionCreated(HttpSessionEvent sessionEvent) {
 		System.out.println("Session Created: ID=" + sessionEvent.getSession().getId());
-		sessionEvent.getSession().setAttribute("Login", new LoginServiceImpl(null, null));
-		sessionEvent.getSession().setAttribute("Cart", new CartServiceImpl());
-		sessionEvent.getSession().setAttribute("Payment", new PaymentServiceImpl());
+		sessionEvent.getSession().setAttribute("loginService", new LoginServiceImpl());
+		sessionEvent.getSession().setAttribute("cartService", new CartServiceImpl());
+		sessionEvent.getSession().setAttribute("paymentService", new PaymentServiceImpl());
 
 	}
 
