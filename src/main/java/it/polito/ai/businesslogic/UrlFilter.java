@@ -31,6 +31,9 @@ public class UrlFilter implements Filter {
 				// pass the request along the filter chain
 				chain.doFilter(request, response);
 			} else {
+				String relativeUrl = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+				session.setAttribute("nextPage", relativeUrl);
+				//System.out.println(relativeUrl);
 				httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
 			}
 		} else {
