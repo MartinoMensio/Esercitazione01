@@ -7,7 +7,7 @@
 <ul class="nav navbar-nav">
 	<li><a href="index.jsp">Home</a></li>
 	<li><a href="shop.jsp">Shop</a></li>
-	<li><a href="#">Cart</a></li>
+	<li><a href="cart.jsp">Cart</a></li>
 	<%
 		if (loginService.isLoggedIn()) {
 	%>
