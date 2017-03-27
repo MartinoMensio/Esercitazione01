@@ -3,14 +3,19 @@
  */
 package it.polito.ai.businesslogic;
 
-import java.util.Calendar;
+import java.time.Duration;
 
 /**
  *
  */
 public class TravelDocument {
+	TravelDocumentTypes types;
 	private String id, name, description, recap;
-	private Calendar duration;
+	private Duration duration;
+	
+	public TravelDocument(){
+		
+	}
 	
 	/**
 	 * @param id
@@ -19,7 +24,7 @@ public class TravelDocument {
 	 * @param recap
 	 * @param duration
 	 */
-	public TravelDocument(String id, String name, String description, String recap, Calendar duration) {
+	public TravelDocument(String id, String name, String description, String recap, Duration duration) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -78,14 +83,64 @@ public class TravelDocument {
 	/**
 	 * @return the duration
 	 */
-	public Calendar getDuration() {
+	public Duration getDuration() {
 		return duration;
 	}
 	/**
 	 * @param duration the duration to set
 	 */
-	public void setDuration(Calendar duration) {
+	public void setDuration(Duration duration) {
 		this.duration = duration;
+	}
+	
+	public void initializeTravelDocument(TravelDocumentTypes typess){
+		switch(typess){
+		
+		case CORSA_SINGOLA_URBANA:
+			System.out.println("Corsa singola urbana");
+			this.id = "1";
+			this.name = "Corsa singola urbana";
+			this.description = "Corsa singola urbana della durata di 90 minuti, valida su tutti i tram, bus della GTT";
+			this.recap = "Corsa singola urbana della durata di 90 minuti";
+			this.duration = Duration.ofMinutes(90);	
+			break;
+		
+		case CORSA_SINGOLA_SUBURBANA:
+			System.out.println("Corsa singola suburbana");
+			this.id = "2";
+			this.name = "Corsa singola suburbana";
+			this.description = "Corsa singola suburbana della durata di 90 minuti, valida su tutti i tram, bus della GTT";
+			this.recap = "Corsa singola suburbana della durata di 90 minuti";
+			this.duration = Duration.ofMinutes(90);	
+			break;
+		
+		case BIGLIETTO_GIORNALIERO:
+			System.out.println("Biglietto giornaliero");
+			this.id = "3";
+			this.name = "Biglietto giornaliero";
+			this.description = "Biglietto giornaliero della durata di 24 ore, valido su tutti i tram, bus della GTT";
+			this.recap = "Biglietto giornaliero della durata di 24 ore";
+			this.duration = Duration.ofHours(24);	
+			break;
+		
+		case ABBONAMENTO_SETTIMANALE:
+			System.out.println("Abbonamento settimanale");
+			this.id = "4";
+			this.name = "Abbonamento settimanale";
+			this.description = "Abbonamento settimanale della durata di 7 giorni, valido su tutti i tram, bus della GTT";
+			this.recap = "Abbonamento settimanale della durata di 7 giorni";
+			this.duration = Duration.ofDays(7);
+			break;
+		
+		case ABBONAMENTO_MENSILE:
+			System.out.println("Abbonamento mensile");
+			this.id = "5";
+			this.name = "Abbonamento mensile";
+			this.description = "Abbonamento mensile della durata di 1 mese, valido su tutti i tram, bus della GTT";
+			this.recap = "Abbonamento mensile della durata di 1 mese";
+			this.duration = Duration.ofDays(28);
+			break;
+		}
 	}
 	
 }

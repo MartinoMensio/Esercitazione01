@@ -24,11 +24,14 @@ public class AppContextListener implements ServletContextListener, HttpSessionLi
 		System.out.println("ServletContextListener started");	
 		Set<TravelDocument> travelDocuments = new HashSet<TravelDocument>();
 		
-		/* Riempire il set con i vari travelDocument, bisogna ancora
-		 * implementare i dettagli per distinguere i vari ticket*/
+		for(TravelDocumentTypes type : TravelDocumentTypes.values()){
+			TravelDocument travelDocument = new TravelDocument();
+			travelDocument.initializeTravelDocument(type);
+			travelDocuments.add(travelDocument);
+		}
 		
 		this.context = contextEvent.getServletContext();
-		context.setAttribute("test", "second");
+		context.setAttribute("travelDocuments", travelDocuments);
 	}
 
 	public void contextDestroyed(ServletContextEvent contextEvent) {
