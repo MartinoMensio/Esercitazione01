@@ -38,7 +38,15 @@
 						.getAttribute("travelDocuments");
 				for (TravelDocument t : travelDocuments) {
 			%>
-			<p><%=t.getName()%></p>
+			<div class="panel panel-default">
+				<div class="panel-heading"><%=t.getName()%></div>
+				<div class="panel-body row">
+					<div class="col-sm-9"><%=t.getDescription()%></div>
+					<div class="col-sm-3">
+						<button class="btn">Aggiungi</button>
+					</div>
+				</div>
+			</div>
 			<%
 				}
 			%>
@@ -48,5 +56,10 @@
 		</div>
 
 	</div>
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+	</script>
 </body>
 </html>
