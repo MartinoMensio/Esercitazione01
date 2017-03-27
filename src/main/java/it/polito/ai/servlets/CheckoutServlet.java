@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.polito.ai.businesslogic.CartService;
+import it.polito.ai.businesslogic.PaymentInfo;
 import it.polito.ai.businesslogic.PaymentService;
 
 @WebServlet("/private/checkout/actions")
@@ -24,6 +25,16 @@ public class CheckoutServlet extends HttpServlet {
 			// send the client to the checkout page
 			response.sendRedirect(request.getContextPath() + "/private/checkout.jsp");
 		} else if(actionType.equals("do")) {
+			// get the payment info from the form
+			String method = request.getParameter("method");
+			String creditCard = request.getParameter("creditCard");
+			String billingAddress = request.getParameter("billingAddress");
+			String city = request.getParameter("city");
+			String cap = request.getParameter("cap");
+			String organization = request.getParameter("organization");
+			
+			PaymentInfo paymentInfo = new PaymentInfo(method, creditCard, billingAddress, city, cap, organization);
+			paymentService.setPaymentInfo(paymentInfo);
 			if (paymentService.getPaymentInfo() == null) {
 				// TODO provide an error message, payment info are required
 				response.sendRedirect(request.getContextPath() + "/private/checkout.jsp");
@@ -31,7 +42,10 @@ public class CheckoutServlet extends HttpServlet {
 				// proceed with payment
 				if (paymentService.pay()) {
 					// succeeded
-					response.sendRedirect(request.getContextPath() + "/done");
+					System.out.println("payed");
+					// the list of elements to be bought is cleaned
+					paymentService.setCartItem(null);
+					response.sendRedirect(request.getContextPath() + "/private/checkout/done");
 				} else {
 					// payment failed
 					response.sendRedirect(request.getContextPath() + "/private/checkout.jsp");

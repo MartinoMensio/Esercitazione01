@@ -59,10 +59,31 @@
 				%>
 			</div>
 			<div class="col-sm-4">
-				<form method="POST" action="private/checkout/actions?type=do" enctype="application/x-www-form-urlencoded">
+				<form method="POST" action="private/checkout/actions?type=do"
+					enctype="application/x-www-form-urlencoded">
 					<div class="form-group row">
-					<label for="creditCard">Carta di credito:</label>
-					<input type="text" name="creditCard" class="form-control">
+						<label for="method">Metodo:</label> <input
+							type="text" name="method" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="creditCard">Carta di credito:</label> <input
+							type="text" name="creditCard" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="billingAddress">Indirizzo di fattura:</label> <input
+							type="text" name="billingAddress" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="city">Città:</label> <input
+							type="text" name="city" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="cap">CAP:</label> <input
+							type="text" name="cap" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="organization">Organizzazione:</label> <input
+							type="text" name="organization" class="form-control">
 					</div>
 					<button type="submit">Checkout</button>
 				</form>
