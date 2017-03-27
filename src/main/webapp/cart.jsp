@@ -60,6 +60,9 @@
 			<%
 				}
 			%>
+			<form method="POST" action="private/checkout/actions?type=create">
+			<button type="submit">Checkout</button>
+			</form>
 		</div>
 		<div id="pagefooter" class="row">
 			<%@include file="components/footer.jsp"%>

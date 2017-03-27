@@ -18,10 +18,18 @@ public class PaymentServiceImpl implements PaymentService {
 		this.cartItems = cartItems;
 		return true;
 	}
+	
+	public Map<String,Integer> getCartItems() {
+		return cartItems;
+	}
 
 	public boolean setPaymentInfo(PaymentInfo paymentInfo) {
 		this.paymentInfo = paymentInfo;
 		return true;
+	}
+	
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
 	}
 
 	public boolean pay() {
