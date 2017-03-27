@@ -14,12 +14,20 @@
 	<jsp:body>
 	<form action="login/do" method="POST" enctype="application/x-www-form-urlencoded">
 		<div class="form-group">
-		<label for="username">Username:</label>
-		<input type="text" name="username" class="form-control"/>
+			<div class="row">
+	  			<div class="col-sm-4">
+					<label for="username">Username:</label>
+					<input type="text" name="username" class="form-control"/>
+				</div>
+			</div>
 		</div>
 		<div class="form-group">
-		<label for="password">Password:</label>
-		<input type="password" name="password" class="form-control"/>
+			<div class="row">
+	  			<div class="col-sm-4">
+					<label for="password">Password:</label>
+					<input type="password" name="password" class="form-control"/>
+				</div>
+			</div>
 		</div>
 		<button type="submit">Submit</button>
        </form> 
