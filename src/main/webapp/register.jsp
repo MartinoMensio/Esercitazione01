@@ -70,6 +70,18 @@
 					<input type="text" class="form-control" id="organization">
 			    </div>
 			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">E-mail:</label>
+				<div class="col-sm-4">
+					<input type="email" class="form-control" id="email">
+			    </div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="password">Password:</label>
+				<div class="col-sm-4">
+					<input type="password" class="form-control" id="password">
+			    </div>
+			</div>
 			<button type="button" class="btn btn-success btn-lg" onclick="submit()">Registrati</button>
 		</form>
 
