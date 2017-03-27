@@ -12,7 +12,11 @@
 		if (loginService.isLoggedIn()) {
 	%>
 	<li><a href="private/profile.jsp"><%=loginService.getUsername()%></a></li>
-	<li><a href="logout">Logout</a></li>
+	<li><a>
+			<form action="logout" method="post">
+				<input type="submit" value="Logout">
+			</form>
+	</a></li>
 	<%
 		} else {
 	%>
