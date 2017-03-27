@@ -21,11 +21,17 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		System.out.println("username:" + username + " password:" + password + " loginService:" + loginService);
 		// TODO use for continue navigation (url param)
-		String nextPage = request.getParameter("nextPage");
+		String nextPage = (String) request.getSession().getAttribute("nextPage");
+		System.out.println("nextPage:" + nextPage);
 		if (loginService != null && loginService.login(username, password)) {
 			// success (go to homepage for now)
-			// TODO use nextPage
-			response.sendRedirect(request.getContextPath());
+			if (nextPage != null) {
+				request.getSession().setAttribute("nextPage", null);
+				response.sendRedirect(request.getContextPath() + nextPage);
+			} else {
+				response.sendRedirect(request.getContextPath());
+			}
+			
 		} else {
 			// fail (go again to login page)
 			// TODO should display error message
