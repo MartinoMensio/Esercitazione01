@@ -9,7 +9,7 @@ import java.time.Duration;
  *
  */
 public class TravelDocument {
-	TravelDocumentTypes types;
+	private TravelDocumentTypes type;
 	private String id, name, description, recap;
 	private Duration duration;
 	
@@ -31,6 +31,12 @@ public class TravelDocument {
 		this.description = description;
 		this.recap = recap;
 		this.duration = duration;
+	}
+	/**
+	 * @return the type
+	 */
+	public TravelDocumentTypes getType() {
+		return type;
 	}
 	/**
 	 * @return the id
@@ -94,6 +100,7 @@ public class TravelDocument {
 	}
 	
 	public void initializeTravelDocument(TravelDocumentTypes typess){
+		this.type = typess;
 		switch(typess){
 		
 		case CORSA_SINGOLA_URBANA:
@@ -102,7 +109,7 @@ public class TravelDocument {
 			this.name = "Corsa singola urbana";
 			this.description = "Corsa singola urbana della durata di 90 minuti, valida su tutti i tram, bus della GTT";
 			this.recap = "Corsa singola urbana della durata di 90 minuti";
-			this.duration = Duration.ofMinutes(90);	
+			this.duration = Duration.ofMinutes(90);
 			break;
 		
 		case CORSA_SINGOLA_SUBURBANA:
