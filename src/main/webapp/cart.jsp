@@ -52,8 +52,9 @@
 				<div class="panel-body row">
 					<div class="col-sm-9"><%=item.getValue()%></div>
 					<div class="col-sm-3">
-						<form action="cart/remove" method="POST"
+						<form action="cart/actions" method="POST"
 							enctype="application/x-www-form-urlencoded">
+							<input hidden="true" name="type" value="delete">
 							<input hidden="true" name="travelDocumentId"
 								value="<%=tFound.getId()%>">
 							<button type="submit" class="btn">Rimuovi</button>
