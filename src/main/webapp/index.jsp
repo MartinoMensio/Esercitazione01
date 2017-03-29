@@ -13,7 +13,7 @@
     </jsp:attribute>
 	<jsp:body>
 		<h1>Home page</h1>
-        <p>Hi I'm the heart of the message</p>
+        <p>Welcome to the Subway website!</p>
         
     </jsp:body>
 </t:template>
