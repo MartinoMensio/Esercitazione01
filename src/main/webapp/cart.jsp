@@ -37,8 +37,9 @@
 	<div class="container" style="padding-top: 50px; padding-left: 250px">
 		<div id="body" class="row">
 			<%
-				java.util.Set<TravelDocument> travelDocuments = (java.util.Set<TravelDocument>) request.getServletContext()
+				Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
 						.getAttribute("travelDocuments");
+
 				for (Map.Entry<String, Integer> item : cartService.getItems().entrySet()) {
 					TravelDocument tFound = null;
 					for (TravelDocument t : travelDocuments) {
@@ -52,12 +53,13 @@
 				<div class="panel-body row">
 					<div class="col-sm-9"><%=item.getValue()%></div>
 					<div class="col-sm-3">
-						<form action="cart/actions" method="POST"
+						<form action="cart/actions?type=remove" method="POST"
 							enctype="application/x-www-form-urlencoded">
 							<input hidden="true" name="type" value="delete">
 							<input hidden="true" name="travelDocumentId"
 								value="<%=tFound.getId()%>">
 							<button type="submit" class="btn">Rimuovi</button>
+
 						</form>
 					</div>
 				</div>

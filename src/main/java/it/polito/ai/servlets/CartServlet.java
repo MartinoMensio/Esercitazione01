@@ -37,6 +37,11 @@ public class CartServlet extends HttpServlet {
 			cartService.updateItem(travelDocumentId, Integer.parseInt(quantity));
 			// send the client to the checkout page
 			response.sendRedirect(request.getContextPath() + "/cart.jsp");
+		}else if(actionType.equals("remove")){
+			System.out.println("Remove: "+ travelDocumentId);
+			cartService.removeItem(travelDocumentId);
+			// send the client to the checkout page
+			response.sendRedirect(request.getContextPath() + "/cart.jsp");
 		}else{
 			//Fail
 			System.out.println("CartServlet operation failed");
