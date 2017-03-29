@@ -31,9 +31,17 @@ public class UrlFilter implements Filter {
 				// pass the request along the filter chain
 				chain.doFilter(request, response);
 			} else {
-				String relativeUrl = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
-				session.setAttribute("nextPage", relativeUrl);
-				//System.out.println(relativeUrl);
+				System.out.println("blocked request for " + httpRequest.getRequestURI());
+				// distinguish request method
+				if (httpRequest.getMethod().toUpperCase().equals("GET")) {
+					// for GET requests, simply save the blocked URL in the
+					// session
+					session.setAttribute("nextPage", httpRequest.getRequestURI());
+				} else {
+					// for POST requests, get the Referer page and save in the
+					// session
+					session.setAttribute("nextPage", httpRequest.getHeader("Referer"));
+				}
 				httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
 			}
 		} else {

@@ -27,11 +27,10 @@ public class LoginServlet extends HttpServlet {
 			// success (go to homepage for now)
 			if (nextPage != null) {
 				request.getSession().setAttribute("nextPage", null);
-				response.sendRedirect(request.getContextPath() + nextPage);
+				response.sendRedirect(nextPage);
 			} else {
 				response.sendRedirect(request.getContextPath());
 			}
-			
 		} else {
 			// fail (go again to login page)
 			// TODO should display error message
