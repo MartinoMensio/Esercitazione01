@@ -43,7 +43,7 @@
 				for (Map.Entry<String, Integer> item : cartService.getItems().entrySet()) {
 					TravelDocument tFound = null;
 					for (TravelDocument t : travelDocuments) {
-						if (t.getId() == item.getKey()) {
+						if (t.getId().equals(item.getKey())) {
 							tFound = t;
 						}
 					}
