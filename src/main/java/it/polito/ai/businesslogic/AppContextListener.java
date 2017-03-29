@@ -6,7 +6,11 @@ import java.util.Set;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -16,7 +20,7 @@ import javax.servlet.http.HttpSessionListener;
  * */
 
 @WebListener
-public class AppContextListener implements ServletContextListener, HttpSessionListener {
+public class AppContextListener implements ServletContextListener, HttpSessionListener, ServletRequestListener {
 
 	private ServletContext context = null;
 
@@ -50,6 +54,23 @@ public class AppContextListener implements ServletContextListener, HttpSessionLi
 
 	public void sessionDestroyed(HttpSessionEvent sessionEvent) {
 		System.out.println("Session Destroyed: ID=" + sessionEvent.getSession().getId());	
+	}
+
+	public void requestDestroyed(ServletRequestEvent requestEvent) {
+		// nothing to do there
+	}
+
+	public void requestInitialized(ServletRequestEvent requestEvent) {
+		if (requestEvent.getServletRequest() instanceof HttpServletRequest) {
+			HttpSession httpSession = ((HttpServletRequest) requestEvent.getServletRequest()).getSession();
+			// check if some services are null
+			if (httpSession.getAttribute("loginService") == null || httpSession.getAttribute("cartService") == null || httpSession.getAttribute("paymentService") == null) {
+				// invalidate session, so that a new session will be created
+				httpSession.invalidate();
+				System.out.println("session invalidated because null components");
+			}
+		}
+		
 	}
 
 
