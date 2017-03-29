@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="it.polito.ai.businesslogic.TravelDocument"%>
 <%@ page import="java.net.*"%>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*"%>
 <jsp:useBean id="cartService"
 	class="it.polito.ai.businesslogic.CartServiceImpl" scope="session"></jsp:useBean>
 <!DOCTYPE html>
@@ -39,7 +39,6 @@
 			<%
 				java.util.Set<TravelDocument> travelDocuments = (java.util.Set<TravelDocument>) request.getServletContext()
 						.getAttribute("travelDocuments");
-				
 				for (Map.Entry<String, Integer> item : cartService.getItems().entrySet()) {
 					TravelDocument tFound = null;
 					for (TravelDocument t : travelDocuments) {
@@ -53,7 +52,12 @@
 				<div class="panel-body row">
 					<div class="col-sm-9"><%=item.getValue()%></div>
 					<div class="col-sm-3">
-						<button class="btn">Rimuovi</button>
+						<form action="cart/remove" method="POST"
+							enctype="application/x-www-form-urlencoded">
+							<input hidden="true" name="travelDocumentId"
+								value="<%=tFound.getId()%>">
+							<button type="submit" class="btn">Rimuovi</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -61,7 +65,7 @@
 				}
 			%>
 			<form method="POST" action="private/checkout/actions?type=create">
-			<button type="submit">Checkout</button>
+				<button type="submit">Checkout</button>
 			</form>
 		</div>
 		<div id="pagefooter" class="row">
