@@ -9,7 +9,9 @@
     <%@include file="components/list.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="footer">
-      <p>Footer</p>
+      <div id="pagefooter" class="row">
+			<%@include file="components/footer.jsp"%>
+		</div>
     </jsp:attribute>
 	<jsp:body>
 	<form action="login/do" method="POST" enctype="application/x-www-form-urlencoded">
