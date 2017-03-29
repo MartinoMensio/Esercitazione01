@@ -25,6 +25,9 @@ public class LogoutServlet extends HttpServlet {
 	
 		if (loginService != null) {
 			loginService.logout();
+			// invalidate the session, so that the the session gets destroyed
+			// and the JSESSIONID cookie is not more valid
+			request.getSession().invalidate();
 			// success (go to homepage for now)
 			response.sendRedirect(request.getContextPath());
 		} else {
