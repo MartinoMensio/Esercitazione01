@@ -43,7 +43,13 @@
 				<div class="panel-body row">
 					<div class="col-sm-9"><%=t.getDescription()%></div>
 					<div class="col-sm-3">
-						<button class="btn">Aggiungi</button>
+						<form action="cart/actions?type=add" method="POST"
+							enctype="application/x-www-form-urlencoded">
+							<button type="submit">Aggiungi</button>
+							<input type="number" name="quantity" value="1" min="1"/>
+							<input value="<%=t.getId()%>" name="travelDocumentId" hidden="true"/>
+							<!-- input nascosto che manda il tipo del biglietto -->
+						</form>
 					</div>
 				</div>
 			</div>

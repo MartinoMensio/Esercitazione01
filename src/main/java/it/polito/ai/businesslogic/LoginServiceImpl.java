@@ -29,12 +29,13 @@ public class LoginServiceImpl implements LoginService {
 		if (loggedIn) {
 			this.username = username;
 		}
-		System.out.println("loggedIn:" + loggedIn);
+		System.out.println("login() - loggedIn:" + loggedIn);
 		return loggedIn;
 	}
 
 	public void logout() {
 		loggedIn = false;
+		System.out.println("logout() - loggedIn:" + loggedIn);
 		username = null;
 	}
 
