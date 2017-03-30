@@ -12,9 +12,10 @@
       <p>Footer</p>
     </jsp:attribute>
 	<jsp:body>
+	<div style="padding-top: 50px;">
 		<h1>Home page</h1>
         <p>Welcome to the Subway website!</p>
-        
+    </div>    
     </jsp:body>
 </t:template>
 

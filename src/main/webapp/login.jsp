@@ -13,7 +13,7 @@
     </jsp:attribute>
 	<jsp:body>
 	<form action="login/do" method="POST" enctype="application/x-www-form-urlencoded">
-		<div class="form-group">
+		<div class="form-group" style="padding-top: 100px;">
 			<div class="row">
 	  			<div class="col-sm-4">
 					<label for="username">Username:</label>

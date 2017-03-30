@@ -29,7 +29,7 @@
 		<%@include file="components/list.jsp"%>
 	</div>
 	<div class="container" style="padding-top: 50px; padding-left: 250px">
-		<div id="body" class="row">
+		<div id="body" class="row" style="padding-top: 100px;">
 			<%
 				if (cartService.getItems().size() == 0)
 				{
@@ -78,9 +78,11 @@
 						}
 					}
 			%>
+
 					<form method="POST" action="private/checkout/actions?type=create">
 						<button type="submit">Checkout</button>
 					</form>
+
 			<%
 				}
 			%>

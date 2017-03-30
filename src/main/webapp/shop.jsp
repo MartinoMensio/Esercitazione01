@@ -31,7 +31,7 @@
 		style="width: 250px; margin-top: 50px;">
 		<%@include file="components/list.jsp"%>
 	</div>
-	<div class="container" style="padding-top: 50px; padding-left: 250px">
+	<div class="container" style="padding-top: 100px; padding-left: 250px">
 		<div id="body" class="row">
 			<%
 				java.util.Set<TravelDocument> travelDocuments = (java.util.Set<TravelDocument>) request.getServletContext()

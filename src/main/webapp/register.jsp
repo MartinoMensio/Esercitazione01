@@ -16,7 +16,7 @@
 	    
 	<jsp:body>
 		<form class="form-horizontal" action="#" method="POST" enctype="application/x-www-form-urlencoded">
-			<div class="form-group">
+			<div class="form-group" style="padding-top: 100px;">
 				<label class="control-label col-sm-2" for="firstName">Nome:</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" id="firstName">
