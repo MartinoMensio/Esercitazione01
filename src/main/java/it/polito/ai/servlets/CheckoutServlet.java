@@ -45,7 +45,7 @@ public class CheckoutServlet extends HttpServlet {
 					System.out.println("payed");
 					// the list of elements to be bought is cleaned
 					paymentService.setCartItem(null);
-					response.sendRedirect(request.getContextPath() + "/private/checkout/done");
+					response.sendRedirect(request.getContextPath() + "/private/payed.jsp");
 				} else {
 					// payment failed
 					response.sendRedirect(request.getContextPath() + "/private/checkout.jsp");

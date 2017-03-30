@@ -38,23 +38,42 @@
 		<div id="body" class="row">
 			<div class="col-sm-4">
 				<%
-					java.util.Set<TravelDocument> travelDocuments = (java.util.Set<TravelDocument>) request.getServletContext()
-							.getAttribute("travelDocuments");
-					for (Map.Entry<String, Integer> item : paymentService.getCartItems().entrySet()) {
-						TravelDocument tFound = null;
-						for (TravelDocument t : travelDocuments) {
-							if (t.getId() == item.getKey()) {
-								tFound = t;
+					if (paymentService.getCartItems().size() == 0)
+					{
+				%>
+						<div>
+							<p class="lead">Impossibile effettuare il pagamento. Il carrello è vuoto!</p>
+						</div>
+				<%		
+					}
+					else
+					{
+						Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
+								.getAttribute("travelDocuments");
+					
+						for (Map.Entry<String, Integer> item : paymentService.getCartItems().entrySet())
+						{
+							TravelDocument tFound = null;
+							for (TravelDocument t : travelDocuments)
+							{
+								if (t.getId().equals(item.getKey()))
+								{
+									tFound = t;
+								}
+							}
+							
+							if (tFound != null)
+							{
+				%>
+								<div class="panel panel-default">
+									<div class="panel-heading"><%=tFound.getName()%></div>
+									<div class="panel-body row">
+										<div class="col-sm-9"><%=item.getValue()%></div>
+									</div>
+								</div>
+				<%
 							}
 						}
-				%>
-				<div class="panel panel-default">
-					<div class="panel-heading"><%=tFound.getName()%></div>
-					<div class="panel-body row">
-						<div class="col-sm-9"><%=item.getValue()%></div>
-					</div>
-				</div>
-				<%
 					}
 				%>
 			</div>
@@ -92,12 +111,13 @@
 			<div id="pagefooter" class="row">
 				<%@include file="../components/footer.jsp"%>
 			</div>
-
 		</div>
-		<script>
-			$(document).ready(function() {
-				$('[data-toggle="popover"]').popover();
-			});
-		</script>
+	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+	</script>
 </body>
 </html>

@@ -3,20 +3,18 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:template>
 	<jsp:attribute name="header">
-      <%@include file="components/navbar.jsp"%>
+      <%@include file="../components/navbar.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="sidenav">
-    <%@include file="components/list.jsp"%>
+    <%@include file="../components/list.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="footer">
-      <div id="pagefooter" class="row">
-			<%@include file="components/footer.jsp"%>
-		</div>
+      <p>Footer</p>
     </jsp:attribute>
 	<jsp:body>
 	<div style="padding-top: 50px;">
-		<h1>Home page</h1>
-        <p>Welcome to the Subway website!</p>
+		<h1>Pagamento effettuato</h1>
+        <p>Grazie per aver acquistato nel nostro sito!</p>
     </div>    
     </jsp:body>
 </t:template>
