@@ -31,7 +31,7 @@
 		style="width: 250px; margin-top: 50px;">
 		<%@include file="components/list.jsp"%>
 	</div>
-	<div class="container" style="padding-top: 50px; padding-left: 250px">
+	<div class="container" style="padding-top: 100px; padding-left: 250px">
 		<div id="body" class="row">
 			<%
 				java.util.Set<TravelDocument> travelDocuments = (java.util.Set<TravelDocument>) request.getServletContext()
@@ -44,7 +44,7 @@
 					<div class="col-sm-9"><%=t.getDescription()%></div>
 					<div class="col-sm-3">
 						<form action="cart/actions?type=add" method="POST"
-							enctype="application/x-www-form-urlencoded">
+							enctype="application/x-www-form-urlencoded" >
 							<button type="submit">Aggiungi</button>
 							<input type="number" name="quantity" value="1" min="1"/>
 							<input value="<%=t.getId()%>" name="travelDocumentId" hidden="true"/>

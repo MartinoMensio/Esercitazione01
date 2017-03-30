@@ -33,6 +33,7 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	public boolean pay() {
+		System.out.println("function pay() called");
 		/**
 		 * Send the paymentInfo and this.cartItems. 
 		 * **/
