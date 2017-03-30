@@ -8,8 +8,10 @@
 	<jsp:attribute name="sidenav">
     <%@include file="../components/list.jsp"%>
     </jsp:attribute>
-	<jsp:attribute name="footer">
-      <p>Footer</p>
+		<jsp:attribute name="footer">
+      <div id="pagefooter" class="row">
+			<%@include file="../components/footer.jsp"%>
+		</div>
     </jsp:attribute>
 	<jsp:body>
 	<div style="padding-top: 50px;">
