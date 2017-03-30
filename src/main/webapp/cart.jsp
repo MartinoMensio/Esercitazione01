@@ -34,7 +34,7 @@
 		style="width: 250px; margin-top: 50px;">
 		<%@include file="components/list.jsp"%>
 	</div>
-	<div class="container" style="padding-top: 100px; padding-left: 250px">
+	<div class="container" style="padding-top: 50px; padding-left: 250px">
 		<div id="body" class="row">
 			<%
 				Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
@@ -59,6 +59,7 @@
 							<input hidden="true" name="travelDocumentId"
 								value="<%=tFound.getId()%>">
 							<button type="submit" class="btn">Rimuovi</button>
+
 						</form>
 					</div>
 				</div>
