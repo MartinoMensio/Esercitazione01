@@ -3,10 +3,10 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <t:template>
 	<jsp:attribute name="header">
-      <%@include file="components/navbar.jsp"%>
+      <%@include file="../components/navbar.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="sidenav">
-    <%@include file="components/list.jsp"%>
+    <%@include file="../components/list.jsp"%>
     </jsp:attribute>
 	<jsp:attribute name="footer">
       <p>Footer</p>
