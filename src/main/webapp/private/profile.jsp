@@ -10,7 +10,7 @@
     </jsp:attribute>
 	<jsp:attribute name="footer">
       <div id="pagefooter" class="row">
-			<%@include file="components/footer.jsp"%>
+			<%@include file="../components/footer.jsp"%>
 		</div>
     </jsp:attribute>
 	<jsp:body>
