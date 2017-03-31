@@ -78,23 +78,23 @@
 				<form method="POST" action="private/checkout/actions?type=do"
 					enctype="application/x-www-form-urlencoded">
 					<div class="form-group row">
-						<label for="method">Metodo:</label> <input type="text"
+						<label for="method">Metodo:</label> <input type="text" required="required"
 							name="method" class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="creditCard">Carta di credito:</label> <input
+						<label for="creditCard">Carta di credito:</label> <input required="required" title="Three letter country code"
 							type="text" name="creditCard" class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="billingAddress">Indirizzo di fattura:</label> <input
-							type="text" name="billingAddress" class="form-control">
+							type="text" required="required" name="billingAddress" class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="city">Città:</label> <input type="text" name="city"
+						<label for="city">Città:</label> <input type="text" required="required" name="city"
 							class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="cap">CAP:</label> <input type="text" name="cap"
+						<label for="cap">CAP:</label> <input type="number" required="required" name="cap"
 							class="form-control">
 					</div>
 					<div class="form-group row">
