@@ -1,6 +1,8 @@
 package it.polito.ai.servlets;
 
 import java.io.IOException;
+import java.util.Set;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.polito.ai.businesslogic.CartService;
+import it.polito.ai.businesslogic.TravelDocument;
 
 /**
  * Servlet implementation class CartServlet
@@ -22,6 +25,8 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CartService cartService = (CartService) request.getSession().getAttribute("cartService");
+		Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext().getAttribute("travelDocuments");
+		
 		String actionType = request.getParameter("type");
 		String travelDocumentId = request.getParameter("travelDocumentId");
 		String quantity = request.getParameter("quantity");
@@ -30,6 +35,16 @@ public class CartServlet extends HttpServlet {
 			System.out.println("Adding " + quantity+" "+ travelDocumentId);
 			// create a checkout from the cart
 			cartService.addItem(travelDocumentId, Integer.parseInt(quantity));
+			
+			for(TravelDocument td: travelDocuments)
+			{
+				if (td.getId().equals(travelDocumentId) == true)
+				{
+					cartService.addTravelDocument(td);
+					break;
+				}
+			}
+			
 			// send the client to the checkout page
 			response.sendRedirect(request.getContextPath() + "/cart.jsp");
 		}else if(actionType.equals("modify")){

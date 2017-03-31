@@ -5,13 +5,16 @@ import java.util.*;
 public class CartServiceImpl implements CartService {
 	
 	private Map<String, Integer> items;
+	private Set<TravelDocument> travelDocs;
 	
 	public CartServiceImpl() {
 		items = new HashMap<String, Integer>();
+		travelDocs = new HashSet<TravelDocument>();
 	}
 	
-	public CartServiceImpl(Map<String, Integer> items) {
+	public CartServiceImpl(Map<String, Integer> items, Set<TravelDocument> travelDocs) {
 		this.items = items;
+		this.travelDocs = travelDocs;
 	}
 
 	public boolean addItem(String travelDocumentId, int quantity) {
@@ -25,7 +28,12 @@ public class CartServiceImpl implements CartService {
 		
 		return true;
 	}
-
+	
+	public void addTravelDocument(TravelDocument td)
+	{
+		travelDocs.add(td);
+	}
+	
 	public boolean removeItem(String travelDocumentId) {
 		return items.remove(travelDocumentId) != null;
 	}
@@ -46,13 +54,22 @@ public class CartServiceImpl implements CartService {
 
 	public float getTotal() {
 		float total = 0;
+		
 		for(Map.Entry<String, Integer> entry : items.entrySet()) {
-			float unitPrice = 1;
-			// TODO get the unit price from the map of TravelDocument
-			// travelDocumentMap.get(entry.getKey()).getPrice()
-			total += unitPrice * entry.getValue();
+			float price = 0;
+			
+			for(TravelDocument td: travelDocs)
+			{
+				if (td.getId().equals(entry.getKey()) == true)
+				{
+					price = td.getPrice();
+					break;
+				}
+			}
+			
+			total += entry.getValue() * price;
 		}
+		
 		return total;
 	}
-
 }

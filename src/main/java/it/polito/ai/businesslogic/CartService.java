@@ -9,6 +9,8 @@ public interface CartService {
 	 * @return
 	 */
 	boolean addItem(String travelDocumentId, int quantity);
+	
+	public void addTravelDocument(TravelDocument td);
 	/**
 	 * @param travelDocumentId
 	 * @return
