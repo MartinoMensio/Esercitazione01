@@ -97,7 +97,7 @@
 						<label for="organization">Organizzazione:</label> <input
 							type="text" name="organization" class="form-control">
 					</div>
-					<button type="submit">Checkout</button>
+					<button class="btn btn-primary" type="submit">Checkout</button>
 				</form>
 			</div>
 			<%

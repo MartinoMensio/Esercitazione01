@@ -76,7 +76,7 @@
 			%>
 
 					<form method="POST" action="private/checkout/actions?type=create">
-						<button type="submit">Checkout</button>
+						<button class="btn btn-primary" type="submit">Checkout</button>
 					</form>
 
 			<%

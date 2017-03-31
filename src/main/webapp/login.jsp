@@ -28,7 +28,7 @@
 				</div>
 			</div>
 		</div>
-		<button type="submit">Submit</button>
+		<button class="btn btn-primary" type="submit">Submit</button>
        </form> 
     </jsp:body>
 </t:template>

@@ -41,7 +41,7 @@
 					<div class="col-sm-3">
 						<form action="cart/actions?type=add" method="POST"
 							enctype="application/x-www-form-urlencoded">
-							<button type="submit">Aggiungi</button>
+							<button class="btn" type="submit">Aggiungi</button>
 							<input type="number" name="quantity" value="1" min="1"/>
 							<input value="<%=t.getId()%>" name="travelDocumentId" hidden="true"/>
 							<!-- input nascosto che manda il tipo del biglietto -->

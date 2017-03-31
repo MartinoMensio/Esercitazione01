@@ -80,7 +80,7 @@
 					<input type="password" class="form-control" id="password" required="required">
 			    </div>
 			</div>
-			<button type="button" class="btn btn-success btn-lg" onclick="submit()">Registrati</button>
+			<button type="button" class="btn btn-primary" onclick="submit()">Registrati</button>
 		</form>
 
     </jsp:body>
