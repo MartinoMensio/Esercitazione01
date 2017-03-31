@@ -57,7 +57,16 @@
 							<div class="panel panel-default">
 								<div class="panel-heading"><%=tFound.getName()%></div>
 								<div class="panel-body row">
-									<div class="col-sm-9"><%=item.getValue()%></div>
+									<div class="col-sm-9">
+										<form action="cart/actions?type=modify" method="POST"
+											enctype="application/x-www-form-urlencoded">
+											<input hidden="true" name="type" value="modify">
+											<label class="control-label col-sm-2" for="firstName">Quantità:</label>
+											<input type="number" name="quantity" value="<%=item.getValue()%>">
+											<input hidden="true" name="travelDocumentId" value="<%=tFound.getId()%>">
+											<button type="submit" class="btn">Aggiorna</button>
+										</form>
+									</div>
 									<div class="col-sm-3">
 										<form action="cart/actions?type=remove" method="POST"
 											enctype="application/x-www-form-urlencoded">
@@ -65,7 +74,6 @@
 											<input hidden="true" name="travelDocumentId"
 												value="<%=tFound.getId()%>">
 											<button type="submit" class="btn">Rimuovi</button>
-				
 										</form>
 									</div>
 								</div>

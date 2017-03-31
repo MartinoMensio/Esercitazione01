@@ -15,7 +15,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	public boolean addItem(String travelDocumentId, int quantity) {
-		return items.putIfAbsent(travelDocumentId, quantity) == null;
+		if (items.containsKey(travelDocumentId)) {
+			int oldQuantity = items.get(travelDocumentId);
+			items.put(travelDocumentId, oldQuantity + quantity);
+		}
+		else {
+			items.put(travelDocumentId, quantity);
+		}
+		
+		return true;
 	}
 
 	public boolean removeItem(String travelDocumentId) {
