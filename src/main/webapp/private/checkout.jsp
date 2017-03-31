@@ -30,7 +30,7 @@
 			<%@include file="../components/navbar.jsp"%>
 		</div>
 	</div>
-	<div class="container" style="padding-top: 50px; padding-left: 250px">
+	<div class="container" style="padding-top: 100px; padding-left: 250px">
 		<div id="body" class="row">
 			<div class="col-sm-4">
 				<%
@@ -104,11 +104,10 @@
 					<button type="submit">Checkout</button>
 				</form>
 			</div>
-
-			<div id="pagefooter" class="row">
+		</div>
+		<div id="pagefooter" class="row">
 				<%@include file="../components/footer.jsp"%>
 			</div>
-		</div>
 	</div>
 
 	<script>

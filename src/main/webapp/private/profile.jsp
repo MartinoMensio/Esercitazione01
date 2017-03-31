@@ -11,7 +11,8 @@
 		</div>
     </jsp:attribute>
 	<jsp:body>
+	<div style="padding-top: 50px;">
 		<h1>Profile</h1>
-        
+    </div>
     </jsp:body>
 </t:template>
