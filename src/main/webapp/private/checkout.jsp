@@ -32,35 +32,30 @@
 	</div>
 	<div class="container" style="padding-top: 100px; padding-left: 250px">
 		<div id="body" class="row">
+			<%
+				if (paymentService.getCartItems() == null || paymentService.getCartItems().size() == 0) {
+			%>
+			<div>
+				<p class="lead">Impossibile effettuare il pagamento. Il carrello
+					è vuoto!</p>
+			</div>
+			<%
+				} else {
+			%>
 			<div class="col-sm-4">
 				<%
-					if (paymentService.getCartItems().size() == 0)
-					{
-				%>
-				<div>
-					<p class="lead">Impossibile effettuare il pagamento. Il
-						carrello è vuoto!</p>
-				</div>
-				<%		
-					}
-					else
-					{
-						Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
+					Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
 								.getAttribute("travelDocuments");
-					
-						for (Map.Entry<String, Integer> item : paymentService.getCartItems().entrySet())
-						{
+
+						for (Map.Entry<String, Integer> item : paymentService.getCartItems().entrySet()) {
 							TravelDocument tFound = null;
-							for (TravelDocument t : travelDocuments)
-							{
-								if (t.getId().equals(item.getKey()))
-								{
+							for (TravelDocument t : travelDocuments) {
+								if (t.getId().equals(item.getKey())) {
 									tFound = t;
 								}
 							}
-							
-							if (tFound != null)
-							{
+
+							if (tFound != null) {
 				%>
 				<div class="panel panel-default">
 					<div class="panel-heading"><%=tFound.getName()%></div>
@@ -69,7 +64,6 @@
 					</div>
 				</div>
 				<%
-							}
 						}
 					}
 				%>
@@ -79,23 +73,25 @@
 					enctype="application/x-www-form-urlencoded">
 					<div class="form-group row">
 						<label for="method">Metodo:</label> <input type="text"
-							name="method" class="form-control">
+							required="required" name="method" class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="creditCard">Carta di credito:</label> <input
-							type="text" name="creditCard" class="form-control">
+							required="required" title="Three letter country code" type="text"
+							name="creditCard" class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="billingAddress">Indirizzo di fattura:</label> <input
-							type="text" name="billingAddress" class="form-control">
-					</div>
-					<div class="form-group row">
-						<label for="city">Città:</label> <input type="text" name="city"
+							type="text" required="required" name="billingAddress"
 							class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="cap">CAP:</label> <input type="text" name="cap"
-							class="form-control">
+						<label for="city">Città:</label> <input type="text"
+							required="required" name="city" class="form-control">
+					</div>
+					<div class="form-group row">
+						<label for="cap">CAP:</label> <input type="number"
+							required="required" name="cap" class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="organization">Organizzazione:</label> <input
@@ -104,10 +100,13 @@
 					<button type="submit">Checkout</button>
 				</form>
 			</div>
+			<%
+				}
+			%>
 		</div>
 		<div id="pagefooter" class="row">
-				<%@include file="../components/footer.jsp"%>
-			</div>
+			<%@include file="../components/footer.jsp"%>
+		</div>
 	</div>
 
 	<script>
