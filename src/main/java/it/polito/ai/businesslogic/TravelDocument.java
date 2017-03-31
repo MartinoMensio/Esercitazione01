@@ -12,6 +12,7 @@ public class TravelDocument {
 	private TravelDocumentTypes type;
 	private String id, name, description, recap;
 	private Duration duration;
+	private float price;
 	
 	public TravelDocument(){
 		
@@ -24,19 +25,29 @@ public class TravelDocument {
 	 * @param recap
 	 * @param duration
 	 */
-	public TravelDocument(String id, String name, String description, String recap, Duration duration) {
+	public TravelDocument(String id, String name, String description, String recap, Duration duration, float price) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.recap = recap;
 		this.duration = duration;
+		this.price = price;
 	}
 	/**
 	 * @return the type
 	 */
 	public TravelDocumentTypes getType() {
 		return type;
+	}
+	public float getPrice() {
+		return this.price;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setPrice(float price) {
+		this.price = price;
 	}
 	/**
 	 * @return the id
@@ -99,9 +110,9 @@ public class TravelDocument {
 		this.duration = duration;
 	}
 	
-	public void initializeTravelDocument(TravelDocumentTypes typess){
-		this.type = typess;
-		switch(typess){
+	public void initializeTravelDocument(TravelDocumentTypes types){
+		this.type = types;
+		switch(types){
 		
 		case CORSA_SINGOLA_URBANA:
 			System.out.println("Corsa singola urbana");
@@ -110,6 +121,7 @@ public class TravelDocument {
 			this.description = "Corsa singola urbana della durata di 90 minuti, valida su tutti i tram, bus della GTT";
 			this.recap = "Corsa singola urbana della durata di 90 minuti";
 			this.duration = Duration.ofMinutes(90);
+			this.price = 1.5f;
 			break;
 		
 		case CORSA_SINGOLA_SUBURBANA:
@@ -119,6 +131,7 @@ public class TravelDocument {
 			this.description = "Corsa singola suburbana della durata di 90 minuti, valida su tutti i tram, bus della GTT";
 			this.recap = "Corsa singola suburbana della durata di 90 minuti";
 			this.duration = Duration.ofMinutes(90);	
+			this.price = 2.0f;
 			break;
 		
 		case BIGLIETTO_GIORNALIERO:
@@ -128,6 +141,7 @@ public class TravelDocument {
 			this.description = "Biglietto giornaliero della durata di 24 ore, valido su tutti i tram, bus della GTT";
 			this.recap = "Biglietto giornaliero della durata di 24 ore";
 			this.duration = Duration.ofHours(24);	
+			this.price = 5.0f;
 			break;
 		
 		case ABBONAMENTO_SETTIMANALE:
@@ -137,6 +151,7 @@ public class TravelDocument {
 			this.description = "Abbonamento settimanale della durata di 7 giorni, valido su tutti i tram, bus della GTT";
 			this.recap = "Abbonamento settimanale della durata di 7 giorni";
 			this.duration = Duration.ofDays(7);
+			this.price = 15.50f;
 			break;
 		
 		case ABBONAMENTO_MENSILE:
@@ -146,6 +161,7 @@ public class TravelDocument {
 			this.description = "Abbonamento mensile della durata di 1 mese, valido su tutti i tram, bus della GTT";
 			this.recap = "Abbonamento mensile della durata di 1 mese";
 			this.duration = Duration.ofDays(28);
+			this.price = 30.50f;
 			break;
 		}
 	}
