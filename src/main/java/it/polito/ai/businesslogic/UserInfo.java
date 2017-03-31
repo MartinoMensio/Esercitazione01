@@ -4,7 +4,7 @@ public class UserInfo {
 	private String firstName, lastName, address, city, birthdate;
 	private String telephone, cellPhone, organization;
 	private String cap;
-	
+
 	/**
 	 * @param firstName
 	 * @param lastName
@@ -28,20 +28,26 @@ public class UserInfo {
 		this.organization = organization;
 		this.cap = cap;
 	}
-	
+
 	public static UserInfo createUserInfo(String firstName, String lastName, String address, String city, String birthdate, String telephone,
 			String cellPhone, String organization, String cap){
-		if(firstName == null || lastName == null || address == null || city == null || birthdate == null || telephone == null){
+		if(firstName == null || lastName == null || address == null || city == null || birthdate == null || telephone == null ||
+				firstName.equals("") || lastName.equals("") || address.equals("") || city.equals("") || birthdate.equals("") || telephone.equals("")){
 			//cellPhone, organization are optional
 			return null;
 		}
-		int capCode = Integer.parseInt(cap);
-		if(capCode < 9999){
-			//cap è un numero di 5 cifre
+		try{
+			int capCode = Integer.parseInt(cap);
+			if(capCode < 9999){
+				//cap è un numero di 5 cifre
+				return null;
+			}
+
+			return new UserInfo(firstName,lastName,address, city, birthdate, telephone, cellPhone, organization, cap);
+		}
+		catch(NumberFormatException e){
 			return null;
 		}
-		
-		return new UserInfo(firstName,lastName,address, city, birthdate, telephone, cellPhone, organization, cap);
 	}
 
 	/**
@@ -169,8 +175,8 @@ public class UserInfo {
 	public void setCap(String cap) {
 		this.cap = cap;
 	}
-	
-	
-	
-	
+
+
+
+
 }
