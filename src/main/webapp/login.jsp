@@ -16,7 +16,7 @@
 			<div class="row">
 	  			<div class="col-sm-4">
 					<label for="username">Username:</label>
-					<input type="text" name="username" class="form-control"/>
+					<input type="text" required="required" name="username" class="form-control" />
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 			<div class="row">
 	  			<div class="col-sm-4">
 					<label for="password">Password:</label>
-					<input type="password" name="password" class="form-control"/>
+					<input type="password"  required="required" name="password" class="form-control"/>
 				</div>
 			</div>
 		</div>
