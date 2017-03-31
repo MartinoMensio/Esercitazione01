@@ -24,6 +24,10 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	public boolean login(String username, String password) {
+		if(username == null || password == null){
+			return false;
+		}
+		
 		String correctPwd = users.get(username);
 		loggedIn = (correctPwd != null && correctPwd.equals(password));
 		if (loggedIn) {

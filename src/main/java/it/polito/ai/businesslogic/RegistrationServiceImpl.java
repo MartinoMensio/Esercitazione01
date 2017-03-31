@@ -14,6 +14,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 	private String password;
 
 	public boolean register(String username, String password, String confirmPassword, UserInfo userInfo) {
+		if (username == null || password == null || confirmPassword == null || userInfo == null){
+			return false;
+		}
+		
 		if(password.equals(confirmPassword) == false){
 			return false;
 		}

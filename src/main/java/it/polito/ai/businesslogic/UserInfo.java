@@ -3,7 +3,7 @@ package it.polito.ai.businesslogic;
 public class UserInfo {
 	private String firstName, lastName, address, city, birthdate;
 	private String telephone, cellPhone, organization;
-	private int cap;
+	private String cap;
 	
 	/**
 	 * @param firstName
@@ -17,7 +17,7 @@ public class UserInfo {
 	 * @param cap
 	 */
 	public UserInfo(String firstName, String lastName, String address, String city, String birthdate, String telephone,
-			String cellPhone, String organization, int cap) {
+			String cellPhone, String organization, String cap) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -27,6 +27,21 @@ public class UserInfo {
 		this.cellPhone = cellPhone;
 		this.organization = organization;
 		this.cap = cap;
+	}
+	
+	public static UserInfo createUserInfo(String firstName, String lastName, String address, String city, String birthdate, String telephone,
+			String cellPhone, String organization, String cap){
+		if(firstName == null || lastName == null || address == null || city == null || birthdate == null || telephone == null){
+			//cellPhone, organization are optional
+			return null;
+		}
+		int capCode = Integer.parseInt(cap);
+		if(capCode < 9999){
+			//cap è un numero di 5 cifre
+			return null;
+		}
+		
+		return new UserInfo(firstName,lastName,address, city, birthdate, telephone, cellPhone, organization, cap);
 	}
 
 	/**
@@ -144,14 +159,14 @@ public class UserInfo {
 	/**
 	 * @return the cap
 	 */
-	public int getCap() {
+	public String getCap() {
 		return cap;
 	}
 
 	/**
 	 * @param cap the cap to set
 	 */
-	public void setCap(int cap) {
+	public void setCap(String cap) {
 		this.cap = cap;
 	}
 	
