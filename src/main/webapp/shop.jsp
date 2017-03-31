@@ -27,10 +27,6 @@
 			<%@include file="components/navbar.jsp"%>
 		</div>
 	</div>
-	<div id="sidenav" class="navbar-fixed-top vertical-center"
-		style="width: 250px; margin-top: 50px;">
-		<%@include file="components/list.jsp"%>
-	</div>
 	<div class="container" style="padding-top: 100px; padding-left: 250px">
 		<div id="body" class="row">
 			<%

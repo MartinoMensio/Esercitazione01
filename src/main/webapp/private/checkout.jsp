@@ -30,10 +30,6 @@
 			<%@include file="../components/navbar.jsp"%>
 		</div>
 	</div>
-	<div id="sidenav" class="navbar-fixed-top vertical-center"
-		style="width: 250px; margin-top: 50px;">
-		<%@include file="../components/list.jsp"%>
-	</div>
 	<div class="container" style="padding-top: 50px; padding-left: 250px">
 		<div id="body" class="row">
 			<div class="col-sm-4">
@@ -41,9 +37,10 @@
 					if (paymentService.getCartItems().size() == 0)
 					{
 				%>
-						<div>
-							<p class="lead">Impossibile effettuare il pagamento. Il carrello è vuoto!</p>
-						</div>
+				<div>
+					<p class="lead">Impossibile effettuare il pagamento. Il
+						carrello è vuoto!</p>
+				</div>
 				<%		
 					}
 					else
@@ -65,12 +62,12 @@
 							if (tFound != null)
 							{
 				%>
-								<div class="panel panel-default">
-									<div class="panel-heading"><%=tFound.getName()%></div>
-									<div class="panel-body row">
-										<div class="col-sm-9"><%=item.getValue()%></div>
-									</div>
-								</div>
+				<div class="panel panel-default">
+					<div class="panel-heading"><%=tFound.getName()%></div>
+					<div class="panel-body row">
+						<div class="col-sm-9"><%=item.getValue()%></div>
+					</div>
+				</div>
 				<%
 							}
 						}
@@ -81,8 +78,8 @@
 				<form method="POST" action="private/checkout/actions?type=do"
 					enctype="application/x-www-form-urlencoded">
 					<div class="form-group row">
-						<label for="method">Metodo:</label> <input
-							type="text" name="method" class="form-control">
+						<label for="method">Metodo:</label> <input type="text"
+							name="method" class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="creditCard">Carta di credito:</label> <input
@@ -93,12 +90,12 @@
 							type="text" name="billingAddress" class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="city">Città:</label> <input
-							type="text" name="city" class="form-control">
+						<label for="city">Città:</label> <input type="text" name="city"
+							class="form-control">
 					</div>
 					<div class="form-group row">
-						<label for="cap">CAP:</label> <input
-							type="text" name="cap" class="form-control">
+						<label for="cap">CAP:</label> <input type="text" name="cap"
+							class="form-control">
 					</div>
 					<div class="form-group row">
 						<label for="organization">Organizzazione:</label> <input
@@ -113,7 +110,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="popover"]').popover();
