@@ -37,6 +37,11 @@
 				}
 				else
 				{
+			%>
+					<div>
+						<p class="lead">Totale: <%=cartService.getTotal() %></p>
+					</div>
+			<%
 					Set<TravelDocument> travelDocuments = (Set<TravelDocument>) request.getServletContext()
 							.getAttribute("travelDocuments");
 	
