@@ -3,6 +3,8 @@
  */
 package it.polito.ai.businesslogic;
 
+import java.util.regex.Pattern;
+
 /**
  *
  *
@@ -10,7 +12,8 @@ package it.polito.ai.businesslogic;
 public class PaymentInfo {
 	private String method;
 	private String creditCard;
-	private String billingAddress, city, cap;
+	private String billingAddress, city;
+	private int cap;
 	private String organization;
 	
 	/**
@@ -21,7 +24,7 @@ public class PaymentInfo {
 	 * @param cap
 	 * @param organization
 	 */
-	public PaymentInfo(String method, String creditCard, String billingAddress, String city, String cap,
+	private PaymentInfo(String method, String creditCard, String billingAddress, String city, int cap,
 			String organization) {
 		super();
 		this.method = method;
@@ -30,6 +33,29 @@ public class PaymentInfo {
 		this.city = city;
 		this.cap = cap;
 		this.organization = organization;
+	}
+	
+	public static PaymentInfo createPaymentInfo(String method, String creditCard, String billingAddress, String city, String cap, String organization) {
+		if (method == null || creditCard == null || billingAddress == null || city == null || cap == null
+				|| method.equals("") || creditCard.equals("") || billingAddress.equals("") || city.equals("") || cap.equals("")) {
+			// checking required fields
+			return null;
+		}
+		String creditCartRegexp = "^(?:(?<visa>4[0-9]{12}(?:[0-9]{3})?)|" +
+		        "(?<mastercard>5[1-5][0-9]{14})|" +
+		        "(?<discover>6(?:011|5[0-9]{2})[0-9]{12})|" +
+		        "(?<amex>3[47][0-9]{13})|" +
+		        "(?<diners>3(?:0[0-5]|[68][0-9])?[0-9]{11})|" +
+		        "(?<jcb>(?:2131|1800|35[0-9]{3})[0-9]{11}))$";
+		if (!Pattern.compile(creditCartRegexp).matcher(creditCard).matches()) {
+			return null;
+		}
+		try {
+			int capInt = Integer.parseInt(cap);
+		return new PaymentInfo(method, creditCard, billingAddress, city, capInt, organization);
+		} catch (NumberFormatException e) {
+			return null;
+		}
 	}
 
 	/**
@@ -91,14 +117,14 @@ public class PaymentInfo {
 	/**
 	 * @return the cap
 	 */
-	public String getCap() {
+	public int getCap() {
 		return cap;
 	}
 
 	/**
 	 * @param cap the cap to set
 	 */
-	public void setCap(String cap) {
+	public void setCap(int cap) {
 		this.cap = cap;
 	}
 

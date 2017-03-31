@@ -33,10 +33,10 @@ public class CheckoutServlet extends HttpServlet {
 			String cap = request.getParameter("cap");
 			String organization = request.getParameter("organization");
 			
-			PaymentInfo paymentInfo = new PaymentInfo(method, creditCard, billingAddress, city, cap, organization);
+			PaymentInfo paymentInfo = PaymentInfo.createPaymentInfo(method, creditCard, billingAddress, city, cap, organization);
 			paymentService.setPaymentInfo(paymentInfo);
 			if (paymentService.getPaymentInfo() == null) {
-				// TODO provide an error message, payment info are required
+				// TODO provide an error message, payment info are required and must be valid
 				response.sendRedirect(request.getContextPath() + "/private/checkout.jsp");
 			} else {
 				// proceed with payment
