@@ -43,6 +43,8 @@ public class CheckoutServlet extends HttpServlet {
 				if (paymentService.pay()) {
 					// succeeded
 					System.out.println("payed");
+					// remove the items from the cart
+					cartService.removeAll();
 					// the list of elements to be bought is cleaned
 					paymentService.setCartItem(null);
 					response.sendRedirect(request.getContextPath() + "/private/payed.jsp");

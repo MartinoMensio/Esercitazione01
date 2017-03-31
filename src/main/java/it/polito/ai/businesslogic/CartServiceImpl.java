@@ -33,7 +33,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	public Map<String, Integer> getItems() {
-		return items;
+		return new HashMap<String, Integer>(items);
 	}
 
 	public float getTotal() {
